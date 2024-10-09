@@ -10,6 +10,8 @@ export default function Home() {
           <li className="pt-6"><Link className=" underline text-red-500 hover:text-red-300"  href="./week-2">Week 2 page</Link></li>
           <li className="pt-2"><Link className=" underline text-red-500 hover:text-red-300"  href="./week-3">Week 3 page</Link></li>
           <li className="pt-2"><Link className=" underline text-red-500 hover:text-red-300"  href="./week-4">Week 4 page</Link></li>
+          <li className="pt-2"><Link className=" underline text-red-500 hover:text-red-300"  href="./week-5">Week 5 page</Link></li>
+          
         </ol>
       </div>
       
