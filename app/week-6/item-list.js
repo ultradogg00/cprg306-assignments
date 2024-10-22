@@ -33,8 +33,6 @@ export default function ItemList() {
         {sortBy == "name" ? <button className={ "mr-5 border p-4 rounded-md bg-slate-700" } onClick={sortName}>Sort by name</button> : <button className={ "mr-5 border p-4 rounded-md hover:bg-slate-500" } onClick={sortName}>Sort by name</button>  }
        
         {sortBy == "category" ? <button className={ "mr-5 border p-4 rounded-md bg-slate-700" } onClick={sortCategory}>Sort by Category</button> : <button className={ "mr-5 border p-4 rounded-md hover:bg-slate-500" } onClick={sortCategory}>Sort by Category</button>  }
-        
-
         {allItems.map((item) => (
           <li key={item.id}>
             <Item
