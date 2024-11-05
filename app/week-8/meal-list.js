@@ -5,8 +5,13 @@ import Meal from "./mealIdea";
 
 export default function MealList({ mainIngredient }) {
   let mI = mainIngredient;
+  const [finalList, setFinalLsit] = useState([]);
   const [allMeals, setAllMeals] = useState([]);
 
+  // final ingredient list state
+
+  // function that calls final ingredient list setter
+  
   async function getMeals(mainIngredient) {
     try {
     let cleanMainIn = mainIngredient.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
@@ -20,10 +25,7 @@ export default function MealList({ mainIngredient }) {
       if (!response.ok) console.log(response.statusText);
 
       const data = await response.json();
-      // let shuffled  = [...data.objectIDs];
-      // shuffled = shuffled.sort( () => 0.5- Math.random() )
-      // shuffled = shuffled.slice(0,10)
-      // setAllMeals(shuffled);
+      
 
       console.dir(data.meals);
       setAllMeals(data.meals);
@@ -31,6 +33,7 @@ export default function MealList({ mainIngredient }) {
       console.log(` Error: ${error.message}`);
     }
   }
+  
   useEffect(() => {
     getMeals(mI);
     // console.log(mI);
@@ -48,7 +51,8 @@ export default function MealList({ mainIngredient }) {
         ) : (
           allMeals.map((x) => (
             <li className="" key={x.idMeal}>
-              <Meal name={x.strMeal} />
+              <Meal name={x.strMeal} id={x.idMeal}  />
+              {/* pass down final ingredient list setter */}
             </li>
           ))
         )}
